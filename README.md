@@ -53,7 +53,8 @@ python -m pip install pyinstaller
 python -m PyInstaller --version # Make sure this is installed. Case sensitive.
 # charamel is not required but helps detect encodings if it is available.
 python -m pip install charamel
-python -m PyInstaller --onefile path\to\zipfile2.py
+python -m PyInstaller --collect-all charamel --onefile path\to\zipfile2.py # With charamel.
+python -m PyInstaller --onefile path\to\zipfile2.py # Without charamel.
 ```
 
 - Look for the output under `dist/*`.
