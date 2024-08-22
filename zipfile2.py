@@ -1,5 +1,5 @@
 """
-Python utility to unpack archive.zip files.
+Utility to unpack archive.zip files written in Python.
 
 Features:
 - Supports file and folder name encodings like shift-jis, cp932, gbk.
@@ -2575,7 +2575,7 @@ def detectEncoding( zipFileName=None, password=None):
 
     if mostFrequent == None:
         print( 'Unable to autodetect encoding. Using default: ' + defaultArchiveEncoding )
-        return defaultArchiveEncoding
+        return defaultArchiveEncoding, ''
 
     resultsString = ''
     #for key,count in detectedEncodings.items():
@@ -2638,6 +2638,8 @@ def unzip2( zipFileName=None, encoding=defaultArchiveEncoding, password=None ):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser( description='Description: Utility to unpack archive.zip files written in Python. Supports batches, various encodings, and passwords. Does not support .7z or .rar files.' )
+
     parser.add_argument( 'archive', help='The archive.zip to unzip. Use * to batch unzip all *.zip archives in the current directory.', default=None)
     parser.add_argument( '-e', '--encoding', help='The encoding to use when extracting file names. Examples: utf-8, cp432, shift-jis, cp932. If the charamel library is available and this is left blank, then the encoding will be autodetected. Available schema: https://docs.python.org/3/library/codecs.html#standard-encodings', default=None)
     parser.add_argument( '-l', '--list', help='List the file names in archive.zip, but do not unzip any files. This is useful to test different encodings prior to extraction.', action='store_true')
@@ -2702,7 +2704,8 @@ def main():
 
         unzip2( zipFileName=tempFile, encoding=encoding, password=password )
 
-    os.chdir( originalDirectory )
+    if str( fileList[ 0 ].parent ) != originalDirectory
+        os.chdir( originalDirectory )
 
 
 if __name__ == '__main__':

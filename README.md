@@ -6,9 +6,10 @@ Features:
 - Cross platform (Windows, Linux).
 - CLI interface.
 - Supports file and folder name encodings like shift-jis, cp932, gbk from zip files.
-- Has encoding autodetection code based upon charamel library to increase success rate and provide hints.
+- Has encoding autodetection code to increase success rate and provide hints.
+    - This is based on the charamel library which must be installed using: `pip install charamel`
 - Supports archives with passwords.
-- Supports batch extracting with `*`.
+- Supports batch extracting *.zip files with `*` wildcard matching.
 - Archives with multiple items are extracted to subfolders automatically.
 - Archives are always extracted relative to the target.
 
@@ -28,6 +29,7 @@ python zipfile2.py archive.zip --encoding shift-jis
 python zipfile2.py archive.zip - shift-jis
 python zipfile2.py archive.zip
 python zipfile2.py *
+python zipfile2.py C:\Users\Public\Downloads\*
 ```
 
 ### Dependencies and Notes:
@@ -63,6 +65,6 @@ python -m PyInstaller --onefile path\to\zipfile2.py # Without charamel.
 
 ### License:
 
-- The majority of zipfle2.py is under Python's standard license.
+- The majority of zipfle2.py is under Python's [license](//docs.python.org/3.11/license.html).
 - Changes are licensed under [Apache 2.0](LICENSE).
 - charamel is Apache 2.0 https://pypi.org/project/charamel
